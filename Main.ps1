@@ -4,4 +4,7 @@
 Remove-Module ToggleVM
 Import-Module ".\Modules\ToggleVM"
 
-ToggleVM "vmGeneral" "DefaultResourceGroup-EUS"
+#ToggleVM "vmGeneral" "DefaultResourceGroup-EUS"
+
+#Calling Scratch Commandlet
+& ".\Scratch.ps1" -FullPassThru

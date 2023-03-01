@@ -1,3 +1,10 @@
+<#
+ .Synopsis
+ Gets the path of the running script
+
+.Example
+Get-ScriptPath
+#>
 function Get-ScriptPath()
 {
     # If using PowerShell ISE
@@ -26,7 +33,24 @@ function Get-ScriptPath()
     return $ScriptPath
 }
 
-$pathRoot = Get-ScriptPath
-$newPassword = "mynewpass"
 
-$newPassword | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Out-File $pathRoot\password.txt
+<#
+ .Synopsis
+ Encrypts a plain text password to a secure string and writes to password.txt. Useful to prevent plain text password from
+ appearing on the screen, however, anyone can decrypt this password if they have the file.
+
+ .Parameter vmName
+  Plain Text Password
+
+ .Parameter rgName
+  Resource Group Name
+
+ .Example
+   ToggleVM -vmName "vmGeneral" -rgName "DefaultResourceGroup-EUS"
+#>
+function Write-PasswordFile {
+    param([string]$pwPlainText)
+    $pathRoot = Get-ScriptPath
+    $newPassword | ConvertTo-SecureString -AsPlainText -Force | ConvertFrom-SecureString | Out-File $pathRoot\password.txt -Verbose
+}
+
