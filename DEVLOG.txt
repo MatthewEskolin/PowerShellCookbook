@@ -1,3 +1,4 @@
 06/32/2023 Codespace failed to create 
 07/26/2023 Prefer txt files for saving monitor space and keeping it simpler
 08/14/2023 Considering if outlook e-mail filtering can be auto-mated
+09/18/2023 What About Reading Outlook emails with powershell?
